@@ -7,6 +7,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Update="Day01Input.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
   <Target Name="CopyInputFiles" AfterTargets="AfterBuild">
     <Copy SourceFiles=".\\Day01Input.txt" DestinationFolder="$(OutDir)" />
   </Target>
