@@ -1,11 +1,11 @@
 using System;
 using System.IO;
 
-public class Day1
+public class Day01
 {
     public static int Solve()
     {
-        var input = File.ReadAllText("Day1Input.txt");
+        var input = File.ReadAllText("Day01Input.txt");
         var lines = input.Split(['\n','\r'], StringSplitOptions.RemoveEmptyEntries);
 
         var list1 = new List<int>();

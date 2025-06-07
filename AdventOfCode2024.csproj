@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <Target Name="CopyInputFiles" AfterTargets="AfterBuild">
-    <Copy SourceFiles=".\\Day1Input.txt" DestinationFolder="$(OutDir)" />
+    <Copy SourceFiles=".\\Day01Input.txt" DestinationFolder="$(OutDir)" />
   </Target>
 
 </Project>
