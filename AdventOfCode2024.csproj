@@ -8,13 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Day01Input.txt">
+    <None Update="*.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <TxtFiles Include="*.txt" />
   </ItemGroup>
 
   <Target Name="CopyInputFiles" AfterTargets="AfterBuild">
-    <Copy SourceFiles=".\\Day01Input.txt" DestinationFolder="$(OutDir)" />
+    <Copy SourceFiles="@(TxtFiles)" DestinationFolder="$(OutDir)" />
   </Target>
 
 </Project>
