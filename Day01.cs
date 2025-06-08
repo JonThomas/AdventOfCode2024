@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-public class Day01
+public class Day01Part1
 {
     public static int Solve()
     {
