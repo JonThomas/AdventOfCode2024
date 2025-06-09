@@ -63,7 +63,7 @@ public class Day02Part2
         return false;
     }
 
-    private static int CheckIfReportIsSafe(List<string> levels)
+    public static int CheckIfReportIsSafe(List<string> levels)
     {
         var previousLevel = -1;
         bool? increasing = null;
