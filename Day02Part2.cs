@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Runtime.CompilerServices;
 
 public class Day02Part2
 {
@@ -19,25 +20,46 @@ public class Day02Part2
                 // Success: report is safe without removing any levels
                 Console.WriteLine("Line is safe, no problem dampeners: " + line);
                 numberOfSafeReports++;
+                continue;
             }
-            else
+
+            // Have to account for one problem dampener. Test by removing the level before, at and after this levelIndex
+            for (var i = levelIndexOrSuccess - 1; i < levelIndexOrSuccess + 2; i++)
             {
-                // Have to account for one problem dampener. Test by removing the level before, at and after this levelIndex
-                for (var i = -1; i < 2; i++)
+                if (i < 0 || i > levels.Count) // Makes sure we don't go out of bounds
                 {
-                    levelIndexOrSuccess = CheckIfReportIsSafe(levels!.RemoveAt(i));
-                    if (levelIndexOrSuccess == -1)
-                    {
-                        // Found a safe report by removing one level
-                        Console.WriteLine($"Line is safe after removing level {i} from: " + line);
-                        numberOfSafeReports++;
-                        break;
-                    }
+                    continue;
+                } 
+
+                if (CheckIfLevelIsOkWithDampener(levels, i))
+                {
+                    // Found a safe report by removing one level
+                    Console.WriteLine($"Line is safe after removing level {levels[i]} at position {i} from: " + string.Join(" ", levels));
+                    numberOfSafeReports++;
+                    break;
+                }
+
+                if(i == levelIndexOrSuccess + 1)
+                {
+                    Console.WriteLine($"Line is not safe, even after testing for problem dampeners: " + line);
                 }
             }
         }
 
         return numberOfSafeReports;
+    }
+
+    private static bool CheckIfLevelIsOkWithDampener(List<string> levels, int i)
+    {
+        var shorterReport = new List<string>(levels);
+        shorterReport.RemoveAt(i);
+        if (CheckIfReportIsSafe(shorterReport) == -1)
+        {
+            // Found a safe report by removing one level
+            return true;
+        }
+
+        return false;
     }
 
     private static int CheckIfReportIsSafe(List<string> levels)
@@ -48,15 +70,15 @@ public class Day02Part2
 
         foreach (var levelText in levels)
         {
-            i++;
             if (!int.TryParse(levelText, out int level))
             {
-                throw new Exception("Line contains invalid level: " + string.Join(" ", levels));   
+                throw new Exception("Line contains invalid level: " + string.Join(" ", levels));
             }
 
             if (previousLevel == -1)
             {
                 previousLevel = level;
+                i++;
                 continue;
             }
 
@@ -74,6 +96,7 @@ public class Day02Part2
             {
                 return i;   // Problem detected, return the index of the level that caused the issue
             }
+            i++;
         }
 
         return -1;  // Level is safe, return -1 to indicate success
