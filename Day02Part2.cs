@@ -23,15 +23,16 @@ public class Day02Part2
                 continue;
             }
 
-            // Have to account for one problem dampener. Test by removing the level before, at and after this levelIndex
-            for (var i = levelIndexOrSuccess - 1; i < levelIndexOrSuccess + 2; i++)
+            // Have to account for one problem dampener. Test by removing the the level 
+            // at the levelIndex, and the two levels before
+            for (var i = levelIndexOrSuccess - 2; i < levelIndexOrSuccess + 1; i++)
             {
                 if (i < 0 || i > levels.Count) // Makes sure we don't go out of bounds
                 {
                     continue;
                 } 
 
-                if (CheckIfLevelIsOkWithDampener(levels, i))
+                if (CheckIfReportIsOkWithoutThisLevel(levels, i))
                 {
                     // Found a safe report by removing one level
                     Console.WriteLine($"Line is safe after removing level {levels[i]} at position {i} from: " + string.Join(" ", levels));
@@ -49,7 +50,7 @@ public class Day02Part2
         return numberOfSafeReports;
     }
 
-    private static bool CheckIfLevelIsOkWithDampener(List<string> levels, int i)
+    private static bool CheckIfReportIsOkWithoutThisLevel(List<string> levels, int i)
     {
         var shorterReport = new List<string>(levels);
         shorterReport.RemoveAt(i);
