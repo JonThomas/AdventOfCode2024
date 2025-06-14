@@ -15,10 +15,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Day04Part1.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Day04Input.txt">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
     <None Update="Day01Input.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
