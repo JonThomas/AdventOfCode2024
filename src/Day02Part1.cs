@@ -5,7 +5,7 @@ public class Day02Part1
 {
     public static int Solve()
     {
-        var input = File.ReadAllText("Day02Input.txt");
+        var input = File.ReadAllText("input/Day02Input.txt");
         var lines = input.Split(['\n', '\r'], StringSplitOptions.RemoveEmptyEntries);
 
         var numberOfSafeReports = 0;

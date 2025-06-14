@@ -3,3 +3,4 @@ Solving programming puzzles in C#: [Advent of Code 2024](https://adventofcode.co
 
 Day1: [⭐](Day01Part1.cs) [⭐](Day01Part2.cs)
 Day2: [⭐](Day02Part1.cs) [⭐](Day02Part2.cs)
+Day3  [⭐](Day03Part1.cs) [⭐](Day03Part2.cs)

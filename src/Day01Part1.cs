@@ -1,11 +1,14 @@
 using System;
 using System.IO;
+using System.Reflection;
 
 public class Day01Part1
 {
     public static int Solve()
     {
-        var input = File.ReadAllText("Day01Input.txt");
+        string executableDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        string path = Path.Combine(executableDirectory, "input\\Day01Input.txt");
+        var input = File.ReadAllText(path);
         var lines = input.Split(['\n','\r'], StringSplitOptions.RemoveEmptyEntries);
 
         var list1 = new List<int>();

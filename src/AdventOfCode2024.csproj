@@ -9,13 +9,29 @@
 
   <ItemGroup>
     <None Update="*.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <TxtFiles Include="*.txt" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Day01Input.txt">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Day02Input.txt">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Day03Input.txt">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
   <Target Name="CopyInputFiles" AfterTargets="AfterBuild">
-    <Copy SourceFiles="@(TxtFiles)" DestinationFolder="$(OutDir)" />
+    <Copy SourceFiles="@(TxtFiles)" DestinationFolder="$(OutDir)/input" />
   </Target>
 
 </Project>
