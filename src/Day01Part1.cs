@@ -6,9 +6,7 @@ public class Day01Part1
 {
     public static int Solve()
     {
-        string executableDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        string path = Path.Combine(executableDirectory, "input\\Day01Input.txt");
-        var input = File.ReadAllText(path);
+        var input = File.ReadAllText("input/Day01Input.txt");
         var lines = input.Split(['\n','\r'], StringSplitOptions.RemoveEmptyEntries);
 
         var list1 = new List<int>();

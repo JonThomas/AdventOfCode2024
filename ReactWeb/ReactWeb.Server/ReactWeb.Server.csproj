@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -8,6 +8,10 @@
     <SpaProxyLaunchCommand>npm run dev</SpaProxyLaunchCommand>
     <SpaProxyServerUrl>https://localhost:50378</SpaProxyServerUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <TxtFiles Include="..\..\src\*.txt" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.5" />
@@ -23,4 +27,8 @@
     </ProjectReference>
   </ItemGroup>
 
+  <Target Name="CopyInputFiles" AfterTargets="AfterBuild">
+    <Copy SourceFiles="@(TxtFiles)" DestinationFolder="$(MSBuildProjectDirectory)/input" />
+  </Target>
+  
 </Project>
