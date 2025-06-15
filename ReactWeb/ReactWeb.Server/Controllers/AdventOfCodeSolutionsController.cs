@@ -23,7 +23,8 @@ namespace ReactWeb.Server.Controllers
                 new AdventOfCodeSolution { Description = "Solution to Day 2 part 2", Solution = Day02Part2.Solve() },
                 new AdventOfCodeSolution { Description = "Solution to Day 3 part 1", Solution = Day03Part1.Solve() },
                 new AdventOfCodeSolution { Description = "Solution to Day 3 part 2", Solution = Day03Part2.Solve() },
-                new AdventOfCodeSolution { Description = "Solution to Day 4 part 1", Solution = Day04Part1.Solve() }
+                new AdventOfCodeSolution { Description = "Solution to Day 4 part 1", Solution = Day04Part1.Solve() },
+                new AdventOfCodeSolution { Description = "Solution to Day 4 part 2", Solution = Day04Part2.Solve() }
             };
         }
     }

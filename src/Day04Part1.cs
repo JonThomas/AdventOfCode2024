@@ -1,5 +1,3 @@
-using System.Drawing;
-
 public class Day04Part1
 {
     public struct Point

@@ -4,4 +4,4 @@ Solving programming puzzles in C#: [Advent of Code 2024](https://adventofcode.co
 Day1: [⭐](src/Day01Part1.cs) [⭐](src/Day01Part2.cs)
 Day2: [⭐](src/Day02Part1.cs) [⭐](src/Day02Part2.cs)
 Day3: [⭐](src/Day03Part1.cs) [⭐](src/Day03Part2.cs)
-Day4: [⭐](src/Day04Part1.cs)
+Day4: [⭐](src/Day04Part1.cs) [⭐](src/Day04Part2.cs)
